@@ -1,6 +1,9 @@
 @use "../../abstracts/index" as *;
 
 .card-compass{
+    p{
+        color: $text-secondary;
+    }
     .compass-container {
         position: relative;
         display: inline-block;

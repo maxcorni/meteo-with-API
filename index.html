@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Application meteo</title>
-    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta name="description" content="">
     <link rel="stylesheet" href="fonts/styles.css">
 	<link rel="stylesheet" href="css/styles.css">
@@ -12,9 +12,16 @@
 <body>
 <main id="main">
 	<div class="container">
-		<div class="empty2 card"></div>
+		<div class="city-name card" id="cityName">
+			<h1>Saint-Etienne</h1>
+		</div>
 		<div class="date" id="dateTime"></div>
-		<div class="empty card"></div>
+		<div class="form card">
+			<form id="weatherForm">
+				<input type="text" id="city" placeholder="Entrez une ville" required>
+				<button type="submit" class="primary-btn">Rechercher</button>
+			</form>
+		</div>
 		<div class="day" id="dayNight"></div>
 		<div class="lundi" id="lundi"></div>
 		<div class="mardi" id="mardi"></div>

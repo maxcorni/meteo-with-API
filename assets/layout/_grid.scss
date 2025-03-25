@@ -4,16 +4,16 @@
     height: 100vh;
     padding: $spacing;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat (7, 1fr );
+    grid-template-rows: repeat (10, 1fr );
     gap: $spacing $spacing;
     grid-auto-flow: row;
     grid-template-areas:
-      "date date today today today empty2 empty2"
+      "date date today today today city-name city-name"
       "date date today today today compass compass"
       "date date today today today compass compass"
-      "empty day today today today compass compass"
-      "empty day today today today compass compass"
+      "form day today today today compass compass"
+      "form day today today today compass compass"
       "temperature temperature temperature temperature temperature temperature temperature"
       "temperature temperature temperature temperature temperature temperature temperature"
       "lundi mardi mercredi jeudi vendredi samedi dimanche"
@@ -21,11 +21,11 @@
       "lundi mardi mercredi jeudi vendredi samedi dimanche";
   }
   
-  .empty2 { grid-area: empty2; }
+  .city-name { grid-area: city-name; }
   
   .date { grid-area: date; }
   
-  .empty { grid-area: empty; }
+  .form { grid-area: form; }
   
   .day { grid-area: day; }
   

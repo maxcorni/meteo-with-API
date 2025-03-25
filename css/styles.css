@@ -20,23 +20,23 @@ body {
   height: 100vh;
   padding: 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat 7, 1fr;
+  grid-template-rows: repeat 10, 1fr;
   gap: 2rem 2rem;
   grid-auto-flow: row;
-  grid-template-areas: "date date today today today empty2 empty2" "date date today today today compass compass" "date date today today today compass compass" "empty day today today today compass compass" "empty day today today today compass compass" "temperature temperature temperature temperature temperature temperature temperature" "temperature temperature temperature temperature temperature temperature temperature" "lundi mardi mercredi jeudi vendredi samedi dimanche" "lundi mardi mercredi jeudi vendredi samedi dimanche" "lundi mardi mercredi jeudi vendredi samedi dimanche";
+  grid-template-areas: "date date today today today city-name city-name" "date date today today today compass compass" "date date today today today compass compass" "form day today today today compass compass" "form day today today today compass compass" "temperature temperature temperature temperature temperature temperature temperature" "temperature temperature temperature temperature temperature temperature temperature" "lundi mardi mercredi jeudi vendredi samedi dimanche" "lundi mardi mercredi jeudi vendredi samedi dimanche" "lundi mardi mercredi jeudi vendredi samedi dimanche";
 }
 
-.empty2 {
-  grid-area: empty2;
+.city-name {
+  grid-area: city-name;
 }
 
 .date {
   grid-area: date;
 }
 
-.empty {
-  grid-area: empty;
+.form {
+  grid-area: form;
 }
 
 .day {
@@ -83,6 +83,23 @@ body {
   grid-area: today;
 }
 
+.primary-btn {
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.primary-btn :hover {
+  background-color: #2980b9;
+}
+.primary-btn :active {
+  transform: scale(0.95);
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -93,18 +110,49 @@ body {
   box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.3294117647), inset -6px -6px 12px rgba(255, 255, 255, 0.3294117647);
   padding: 2rem;
   height: 100%;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .card img {
   width: 10rem;
   height: 10rem;
 }
 
+.card-time :first-child {
+  font-size: 6.4rem;
+}
+.card-time :last-child {
+  font-size: 3.2rem;
+}
+
 .card-now img {
   width: 20rem;
   height: 20rem;
 }
+.card-now :first-child {
+  font-size: 3.2rem;
+}
+.card-now :last-child {
+  font-size: 6.4rem;
+}
 
+.card-hourly :first-child, .card-hourly p:nth-child(2) {
+  color: #000000;
+}
+
+.card-daily :first-child {
+  font-size: 2.2rem;
+  color: #000000;
+}
+.card-daily :nth-child(3) {
+  font-size: 3.2rem;
+}
+.card-daily :last-child {
+  color: #000000;
+}
+
+.card-compass p {
+  color: #000000;
+}
 .card-compass .compass-container {
   position: relative;
   display: inline-block;
@@ -145,13 +193,32 @@ body {
   height: 2rem;
 }
 
+.form #weatherForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 20px auto;
+}
+.form input {
+  padding: 10px;
+  width: 100%;
+  max-width: 250px;
+  border: 2px solid #3498db;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form input :focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
 main {
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.empty, .empty2 {
-  background-color: #2783a0;
 }
 
 /*# sourceMappingURL=styles.css.map */
