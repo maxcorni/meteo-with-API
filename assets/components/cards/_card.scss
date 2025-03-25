@@ -1,0 +1,19 @@
+@use "../../abstracts/index" as *;
+
+
+.card {
+    @include flex(column, center, center);
+    border-radius: 4px;
+    background-color: #fafafa4a;
+    box-shadow: 
+        inset 6px 6px 12px #00000054,
+        inset -6px -6px 12px #ffffff54;
+    padding: $spacing;
+    height: 100%;
+    gap: 1rem;
+    img{
+        width: 10rem;
+        height: 10rem;
+    }
+}
+

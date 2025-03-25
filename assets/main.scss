@@ -1,0 +1,21 @@
+// Import des variables et mixins
+@use "abstracts/index" as *;
+// Import des bases
+@use "base/reset";
+@use "base/reset-typography";
+@use "base/global";
+// Import des layouts
+@use "layout/grid";
+//  Import buttons
+@use "components/buttons/primary";
+@use "components/buttons/secondary";
+//  Import cards
+@use "components/cards/card";
+@use "components/cards/card-compass";
+
+//  Import others
+@use "components/slider";
+//  Import des pages spécifiques
+@use "pages/home";
+
+

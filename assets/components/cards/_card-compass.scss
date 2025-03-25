@@ -1,0 +1,26 @@
+@use "../../abstracts/index" as *;
+
+.card-compass{
+    .compass-container {
+        position: relative;
+        display: inline-block;
+
+        .compass{
+            width: 25.6rem;
+            height: 25.6rem; 
+        }
+
+        .compass-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            width: 3.2rem;
+            height: 18.9rem; 
+        }
+
+        .compass-arrow.rotate {
+            transform: translate(-50%, -50%) rotate(var(--rotation, 0deg));  // Utilisation de la variable CSS --rotation
+        }
+    }
+}
