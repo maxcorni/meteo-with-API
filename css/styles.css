@@ -11,8 +11,9 @@ html {
 }
 
 body {
-  font-family: "roboto";
+  font-family: "impact";
   font-size: 1.6rem;
+  color: #343553;
 }
 
 .container {
@@ -99,6 +100,11 @@ body {
   height: 10rem;
 }
 
+.card-now img {
+  width: 20rem;
+  height: 20rem;
+}
+
 .card-compass .compass-container {
   position: relative;
   display: inline-block;
@@ -145,7 +151,7 @@ main {
 }
 
 .empty, .empty2 {
-  background-color: aqua;
+  background-color: #2783a0;
 }
 
 /*# sourceMappingURL=styles.css.map */

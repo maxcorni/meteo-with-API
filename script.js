@@ -13,18 +13,30 @@ fetch(url)
         const slider = document.getElementById("slider");
         const totalCards = 24;
 
-        // Créer les cartes horaires
+        // Trouver l'indice de l'heure actuelle dans le tableau des heures
+        const currentHour = new Date().getHours();
+        const currentIndex = heures.findIndex(hour => {
+            const hourDate = new Date(hour);
+            return hourDate.getHours() === currentHour;
+        });
+
+        // Créer les cartes horaires à partir de l'heure actuelle et pour les 24 prochaines heures
         for (let i = 0; i < totalCards; i++) {
-            let date = new Date(heures[i]);
+            let index = currentIndex + i;
+            if (index >= heures.length) {
+                break; // Si l'index dépasse la taille du tableau, on s'arrête
+            }
+
+            let date = new Date(heures[index]);
             let timeFormat = formatTime(date);
 
             let cardHourly = document.createElement("div");
-            cardHourly.classList.add("card","card-hourly");
+            cardHourly.classList.add("card", "card-hourly");
 
             // Vérification pour afficher "0 mm" si les précipitations sont à 0
-            let precip = precipitations[i] !== undefined ? precipitations[i] : 0;
+            let precip = precipitations[index] !== undefined ? precipitations[index] : 0;
             // Vérification pour afficher la température 0°C si c'est le cas
-            let temp = temperature[i] !== undefined ? temperature[i] : '--';
+            let temp = temperature[index] !== undefined ? temperature[index] : '--';
 
             cardHourly.innerHTML = `
                 <p><img src="assets/images/icons/thermometer.png" alt="Pictogramme thermomètre"> ${temp === '--' ? '--' : temp + '°C'}</p>
@@ -34,7 +46,6 @@ fetch(url)
 
             slider.appendChild(cardHourly);
         }
-
 
         // ------------------------------ Date Time ---------------------------------//
 
@@ -46,12 +57,14 @@ fetch(url)
         let timeFormat = formatTime(date);
 
         let cardTime = document.createElement("div");
-        cardTime.classList.add("card","card-time");
+        cardTime.classList.add("card", "card-time");
         cardTime.innerHTML = `
             <p>${dateFormat}</p>
             <p>${timeFormat}</p>
         `;
         dateTime.appendChild(cardTime);
+    
+
 
         // ------------------------------ Is day ---------------------------------//
 
@@ -264,7 +277,7 @@ function snapToCard() {
     let index = Math.round(-translateX / cardWidth);
 
     // Limite l'index pour ne pas dépasser la carte 24 (index 23)
-    index = Math.max(0, Math.min(index, 16)); // L'index max doit être 23, pas slider.childElementCount - 1
+    index = Math.max(0, Math.min(index, 17)); // L'index max doit être 23, pas slider.childElementCount - 1
 
     translateX = -index * cardWidth;
 
