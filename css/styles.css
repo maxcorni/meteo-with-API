@@ -13,10 +13,12 @@ html {
 body {
   font-family: "impact";
   font-size: 1.6rem;
-  color: #343553;
+  color: #191a29;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   height: 100vh;
   padding: 2rem;
   display: grid;
@@ -24,7 +26,7 @@ body {
   grid-template-rows: repeat 10, 1fr;
   gap: 2rem 2rem;
   grid-auto-flow: row;
-  grid-template-areas: "date date today today today city-name city-name" "date date today today today compass compass" "date date today today today compass compass" "form day today today today compass compass" "form day today today today compass compass" "temperature temperature temperature temperature temperature temperature temperature" "temperature temperature temperature temperature temperature temperature temperature" "lundi mardi mercredi jeudi vendredi samedi dimanche" "lundi mardi mercredi jeudi vendredi samedi dimanche" "lundi mardi mercredi jeudi vendredi samedi dimanche";
+  grid-template-areas: "date date today today today city-name city-name" "date date today today today compass compass" "date date today today today compass compass" "form day today today today compass compass" "form day today today today compass compass" "temperature temperature temperature temperature temperature temperature temperature" "temperature temperature temperature temperature temperature temperature temperature" "week week week week week week week" "week week week week week week week" "week week week week week week week";
 }
 
 .city-name {
@@ -43,34 +45,6 @@ body {
   grid-area: day;
 }
 
-.lundi {
-  grid-area: lundi;
-}
-
-.mardi {
-  grid-area: mardi;
-}
-
-.mercredi {
-  grid-area: mercredi;
-}
-
-.jeudi {
-  grid-area: jeudi;
-}
-
-.vendredi {
-  grid-area: vendredi;
-}
-
-.samedi {
-  grid-area: samedi;
-}
-
-.dimanche {
-  grid-area: dimanche;
-}
-
 .temperature {
   grid-area: temperature;
 }
@@ -83,6 +57,21 @@ body {
   grid-area: today;
 }
 
+.week {
+  grid-area: week;
+}
+
+@media (max-width: 1160px) {
+  .container {
+    display: grid;
+    gap: 2rem;
+    height: fit-content;
+    padding: 2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-areas: "city-name " "form " "date " "date " "today " "today " "day " "compass" "compass" "temperature " "week " "week ";
+  }
+}
 .primary-btn {
   padding: 10px 15px;
   background-color: #3498db;
@@ -106,7 +95,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  background-color: rgba(250, 250, 250, 0.2901960784);
+  background-color: rgba(131, 130, 130, 0.2901960784);
   box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.3294117647), inset -6px -6px 12px rgba(255, 255, 255, 0.3294117647);
   padding: 2rem;
   height: 100%;
@@ -139,17 +128,6 @@ body {
   color: #000000;
 }
 
-.card-daily :first-child {
-  font-size: 2.2rem;
-  color: #000000;
-}
-.card-daily :nth-child(3) {
-  font-size: 3.2rem;
-}
-.card-daily :last-child {
-  color: #000000;
-}
-
 .card-compass p {
   color: #000000;
 }
@@ -173,24 +151,76 @@ body {
   transform: translate(-50%, -50%) rotate(var(--rotation, 0deg));
 }
 
+.week {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.week .week-day {
+  flex-grow: 1;
+  display: flex;
+}
+.week .week-day .card-daily {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.week .week-day .card-daily :first-child {
+  font-size: 2.2rem;
+  color: #000000;
+}
+.week .week-day .card-daily :nth-child(3) {
+  font-size: 3.2rem;
+}
+.week .week-day .card-daily :last-child {
+  color: #000000;
+}
+
+@media (max-width: 1160px) {
+  .week {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .week .week-day {
+    min-width: max-content;
+    height: 100%;
+  }
+  .week ::-webkit-scrollbar {
+    display: none;
+  }
+}
 .temperature {
   width: 100%;
-  overflow: hidden;
-  position: relative;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  min-height: 15.2rem;
 }
 .temperature .slider {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  min-width: max-content;
   height: 100%;
 }
 .temperature .slider .card-hourly {
-  flex: 0 0 11.1111111111%;
+  scroll-snap-align: start;
   width: 15.2rem;
   margin-right: 2rem;
 }
 .temperature .slider .card-hourly img {
   width: 2rem;
   height: 2rem;
+}
+.temperature ::-webkit-scrollbar {
+  display: none;
 }
 
 .form #weatherForm {
@@ -217,8 +247,23 @@ body {
 }
 
 main {
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-width: 412px;
+}
+main .background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+main .background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=styles.css.map */

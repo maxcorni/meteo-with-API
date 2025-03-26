@@ -1,0 +1,30 @@
+
+@use "../abstracts/index" as *;
+
+.temperature {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    min-height: 15.2rem; 
+    .slider {
+        display: flex;
+        min-width: max-content; 
+        height: 100%;
+        .card-hourly {
+            scroll-snap-align: start;
+            width: 15.2rem;
+            margin-right: 2rem;
+            img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+    ::-webkit-scrollbar {
+        display: none; 
+    }
+    
+}

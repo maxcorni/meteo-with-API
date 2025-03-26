@@ -1,0 +1,50 @@
+
+@use "../abstracts/index" as *;
+
+.week {
+    @include flex(row, space-between, center);
+    gap: 1rem;
+    
+    .week-day {
+        flex-grow: 1;
+        display: flex;
+        
+        .card-daily {
+            width: 100%; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            :first-child {
+                font-size: 2.2rem;
+                color: $text-secondary;
+            }
+            :nth-child(3) {
+                font-size: 3.2rem;
+            }
+            :last-child {
+                color: $text-secondary;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1160px) {  
+    .week {
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        white-space: nowrap;
+        scrollbar-width: none;
+        -ms-overflow-style: none; 
+        .week-day {
+            min-width: max-content; 
+            height: 100%;
+        }
+        ::-webkit-scrollbar {
+            display: none; 
+        }
+        
+    }
+}

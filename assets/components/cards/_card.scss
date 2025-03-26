@@ -4,7 +4,7 @@
 .card {
     @include flex(column, center, center);
     border-radius: 4px;
-    background-color: #fafafa4a;
+    background-color: #8382824a;
     box-shadow: 
         inset 6px 6px 12px #00000054,
         inset -6px -6px 12px #ffffff54;
@@ -47,19 +47,6 @@
 
 }
 
-.card-daily{
-    :first-child{
-        font-size: 2.2rem;
-        color: $text-secondary;
-    }
-    :nth-child(3){
-        font-size: 3.2rem;
-    }
 
-    :last-child{
-        color: $text-secondary;
-    }
-
-}
 
 

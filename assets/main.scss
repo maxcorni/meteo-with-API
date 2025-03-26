@@ -14,7 +14,8 @@
 @use "components/cards/card-compass";
 
 //  Import others
-@use "components/slider";
+@use "components/slider-day";
+@use "components/slider-hour";
 @use "components/form";
 
 //  Import des pages spécifiques

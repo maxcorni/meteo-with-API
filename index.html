@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Application meteo</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta name="description" content="">
-    <link rel="stylesheet" href="fonts/styles.css">
-	<link rel="stylesheet" href="css/styles.css">
+	<meta charset="UTF-8"> <!-- Définit l'encodage des caractères en UTF-8 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Règle la mise en page pour les appareils mobiles -->
+	<title>Météo Quotidienne et Prévisions sur 7 Jours : Trouvez le temps qu’il fait près de chez vous</title> <!-- Titre de la page pour le SEO -->
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Icône du site -->
+	<meta name="description" content="Découvrez la météo en temps réel et les prévisions détaillées pour votre ville avec notre application. Consulter la météo heure par heure et sur les 7 prochains jours, grâce aux données fiables d'OpenWeather et la géolocalisation via Nominatim. Trouvez le temps qu'il fait près de chez vous, où que vous soyez !"> <!-- Description SEO de l'application -->
+    <link rel="stylesheet" href="fonts/styles.css"> <!-- Feuille de style pour les polices -->
+	<link rel="stylesheet" href="css/styles.css"> <!-- Feuille de style principale -->
 </head>
 <body>
-<main id="main">
-	<div class="container">
-		<div class="city-name card" id="cityName">
-			<h1>Saint-Etienne</h1>
+<main id="main"> <!-- Conteneur principal de l'application -->
+	<div class="container"> <!-- Conteneur global pour le contenu -->
+		<div class="city-name card" id="cityName"> <!-- Nom de la ville -->
+			<h1>Saint-Etienne</h1> <!-- Affichage du nom de la ville de base -->
 		</div>
-		<div class="date" id="dateTime"></div>
-		<div class="form card">
+		<div class="date" id="dateTime"></div> <!-- Affichage de la date et heure actuelles -->
+		<div class="form card"> <!-- Formulaire pour rechercher une ville -->
 			<form id="weatherForm">
-				<input type="text" id="city" placeholder="Entrez une ville" required>
-				<button type="submit" class="primary-btn">Rechercher</button>
+				<input type="text" id="city" placeholder="Entrez une ville" required> <!-- Champ de recherche -->
+				<button type="submit" class="primary-btn">Rechercher</button> <!-- Bouton de soumission -->
 			</form>
 		</div>
-		<div class="day" id="dayNight"></div>
-		<div class="lundi" id="lundi"></div>
-		<div class="mardi" id="mardi"></div>
-		<div class="mercredi" id="mercredi"></div>
-		<div class="jeudi" id="jeudi"></div>
-		<div class="vendredi" id="vendredi"></div>
-		<div class="samedi" id="samedi"></div>
-		<div class="dimanche" id="dimanche"></div>
+		<div class="day" id="dayNight"></div> <!-- Section pour afficher si c'est le jour ou la nuit -->
+		<div class="compass" id="compass"></div> <!-- Section pour afficher la boussole ou la direction du vent -->
+		<div class="today" id="curentWeather"></div> <!-- Affichage des conditions météo actuelles -->
 		<div class="temperature">
-			<div class="slider" id="slider"></div>
+			<div class="slider" id="slider"></div> <!-- Slider pour heure par heure -->
 		</div>
-		<div class="compass" id="compass"></div>
-		<div class="today" id="curentWeather"></div>
+		<div class="week" id="week"> <!-- Section pour afficher les prévisions de la semaine -->
+			<!-- Jours de la semaine -->
+			<div class="lundi week-day" id="lundi"></div>
+			<div class="mardi week-day" id="mardi"></div>
+			<div class="mercredi week-day" id="mercredi"></div>
+			<div class="jeudi week-day" id="jeudi"></div>
+			<div class="vendredi week-day" id="vendredi"></div>
+			<div class="samedi week-day" id="samedi"></div>
+			<div class="dimanche week-day" id="dimanche"></div>
+		</div>
 	  </div>
 </main>
-<script src="script.js"></script>
+<script src="script.js"></script> <!-- Inclusion du script JavaScript pour la logique -->
 </body>
 </html>

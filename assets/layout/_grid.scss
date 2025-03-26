@@ -1,6 +1,8 @@
 @use "../abstracts/index" as *;
 
-.container {  
+.container { 
+    position: relative;
+    z-index: 1; 
     height: 100vh;
     padding: $spacing;
     display: grid;
@@ -9,43 +11,49 @@
     gap: $spacing $spacing;
     grid-auto-flow: row;
     grid-template-areas:
-      "date date today today today city-name city-name"
-      "date date today today today compass compass"
-      "date date today today today compass compass"
-      "form day today today today compass compass"
-      "form day today today today compass compass"
-      "temperature temperature temperature temperature temperature temperature temperature"
-      "temperature temperature temperature temperature temperature temperature temperature"
-      "lundi mardi mercredi jeudi vendredi samedi dimanche"
-      "lundi mardi mercredi jeudi vendredi samedi dimanche"
-      "lundi mardi mercredi jeudi vendredi samedi dimanche";
-  }
+        "date date today today today city-name city-name"
+        "date date today today today compass compass"
+        "date date today today today compass compass"
+        "form day today today today compass compass"
+        "form day today today today compass compass"
+        "temperature temperature temperature temperature temperature temperature temperature"
+        "temperature temperature temperature temperature temperature temperature temperature"
+        "week week week week week week week"
+        "week week week week week week week"
+        "week week week week week week week";
+    }
   
-  .city-name { grid-area: city-name; }
-  
-  .date { grid-area: date; }
-  
-  .form { grid-area: form; }
-  
-  .day { grid-area: day; }
-  
-  .lundi { grid-area: lundi; }
-  
-  .mardi { grid-area: mardi; }
-  
-  .mercredi { grid-area: mercredi; }
-  
-  .jeudi { grid-area: jeudi; }
-  
-  .vendredi { grid-area: vendredi; }
-  
-  .samedi { grid-area: samedi; }
-  
-  .dimanche { grid-area: dimanche; }
-  
-  .temperature { grid-area: temperature; }
-  
-  .compass { grid-area: compass; }
-  
-  .today { grid-area: today; }
-  
+    .city-name { grid-area: city-name; }
+    .date { grid-area: date; }
+    .form { grid-area: form; }
+    .day { grid-area: day; }
+    .temperature { grid-area: temperature; }
+    .compass { grid-area: compass; }
+    .today { grid-area: today; }
+    .week { grid-area: week; }
+
+
+@media (max-width: 1160px) {  
+    .container {
+        display: grid; 
+        gap: $spacing;
+        height: fit-content;
+        padding: $spacing;
+        grid-template-columns: 1fr; 
+        grid-template-rows: repeat(12, 1fr); // Simplification
+        grid-template-areas: 
+            "city-name "
+            "form "
+            "date "
+            "date "
+            "today "
+            "today "
+            "day "
+            "compass"
+            "compass"
+            "temperature "
+            "week "
+            "week "; 
+    }
+}
+    
