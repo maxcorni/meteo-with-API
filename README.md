@@ -34,7 +34,7 @@ Une application météo interactive qui affiche les prévisions pour les 7 proch
 1. Clonez ce repository sur votre machine locale :
 
    ```bash
-   git clone https://github.com/ton-utilisateur/weather-app.git
+   git clone https://github.com/maxcorni/weather-app.git
    ```
 
 2. Allez dans le dossier du projet :
