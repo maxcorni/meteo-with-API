@@ -10,8 +10,6 @@ Une application météo interactive qui affiche les prévisions pour les 7 proch
 ## 🚀 **Démo en ligne**
 👉 [https://maxcorni.github.io/meteo-with-API/]
 
-## 📝 **License**
-Projet réalisé dans le cadre pédagogique de Webecom 2025. Non destiné à un usage commercial.
 
 ## Fonctionnalités
 
