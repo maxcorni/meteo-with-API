@@ -7,6 +7,12 @@
 
 Une application météo interactive qui affiche les prévisions pour les 7 prochains jours, les prévisions heure par heure, ainsi que des informations détaillées sur la météo actuelle (température, direction du vent, etc.). L'application ajuste également l'image de fond en fonction du moment de la journée (jour ou nuit) et des conditions météorologiques. L'utilisateur peut choisir une ville via un formulaire et obtenir les informations correspondantes.
 
+## 🚀 **Démo en ligne**
+👉 [https://maxcorni.github.io/meteo-with-API/]
+
+## 📝 **License**
+Projet réalisé dans le cadre pédagogique de Webecom 2025. Non destiné à un usage commercial.
+
 ## Fonctionnalités
 
 - **Affichage des prévisions à 7 jours** : Pour chaque jour, l'application affiche la température maximale et minimale, ainsi que l'icône associée à l'état du temps.
